@@ -1,0 +1,20 @@
+RewriteEngine On
+
+
+#index ignore hanya menghilangkan file file yg di folder, ketika di akses dari url
+IndexIgnore */*
+
+#menghentikan akses folder dari url baik front end dan back end
+Options All -Indexes
+
+#error_404 berguna untuk redirect ke halaman error 404.php 
+ErrorDocument 403 /spkmfeb/error/error_404.php
+
+#home
+RewriteRule ^home\.html$ ?page=home [L]
+RewriteRule ^login\.html$ login.php [L]
+RewriteRule ^logout\.html$ logout.php [L]
+
+#admin
+RewriteRule ^admin\.html$ ?page=pages/admin/index [L]
+RewriteRule ^hapus-admin-([0-9]+)\.html$ ?page=pages/admin/hapusadmin&idhapus=$1 [L]
