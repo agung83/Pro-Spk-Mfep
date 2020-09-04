@@ -30,7 +30,7 @@ if ($admin != 0) {
             <div class="card login-card">
                 <div class="row no-gutters">
                     <div class="col-md-6">
-                        <svg id="a5c16198-98a1-478b-8909-43624583dcf2" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" width="500" height="517" viewBox="0 0 793 551.73152">
+                        <svg id="a5c16198-98a1-478b-8909-43624583dcf2" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" width="500" height="570" viewBox="0 0 793 551.73152">
                             <ellipse cx="158" cy="539.73152" rx="158" ry="12" fill="#e6e6e6" />
                             <path d="M324.27227,296.55377c27.49676-11.6953,61.74442-4.28528,95.19092.85757.31124-6.228,4.08385-13.80782.132-18.15284-4.80115-5.2788-4.35917-10.82529-1.47008-16.40375,7.38788-14.265-3.1969-29.44375-13.88428-42.0647a23.66937,23.66937,0,0,0-19.75537-8.29179l-19.7975,1.41411A23.70939,23.70939,0,0,0,343.635,230.85851v0c-4.72724,6.42917-7.25736,12.84055-5.66438,19.21854-7.08065,4.83882-8.27029,10.67977-5.08851,17.2644,2.698,4.14592,2.66928,8.18161-.12275,12.1056a55.89079,55.89079,0,0,0-8.31011,16.5061Z" transform="translate(-203.5 -174.13424)" fill="#2f2e41" />
                             <path d="M977.70889,651.09727H417.29111A18.79111,18.79111,0,0,1,398.5,632.30616h0q304.727-35.41512,598,0h0A18.79111,18.79111,0,0,1,977.70889,651.09727Z" transform="translate(-203.5 -174.13424)" fill="#2f2e41" />
@@ -66,22 +66,32 @@ if ($admin != 0) {
                                 <h5>APP BEASISWA SMK NEGERI 1 KINALI</h5>
                             </div>
                             <p class="login-card-description">Silahkan Login</p>
-                            <form method="POST">
+                            <form action="" method="POST">
                                 <div class="form-group">
-                                    <div class="form-label-group">
-                                        <input type="text" name="username" class="form-control" required="required" autofocus="autofocus">
-                                        <label>Username</label>
-                                    </div>
+                                    <label for="email" class="sr-only">Username</label>
+                                    <input type="text" name="username" id="email" class="form-control" placeholder="Username">
+                                </div>
+                                <div class="form-group mb-4">
+                                    <label for="password" class="sr-only">Password</label>
+                                    <input type="password" name="password" id="password" class="form-control" placeholder="***********">
+                                </div>
+                                <button class="btn btn-primary btn-block" style="background-color: #6C63FF;" type="submit" name="login">Login</button>
+                            </form>
+                            <!-- <form method="POST">
+                                <div class="form-group">
+                                    <input type="text" name="username" class="form-control" required="required">
+                                    <label>Username</label>
+
                                 </div>
                                 <div class="form-group">
-                                    <div class="form-label-group">
-                                        <input type="password" name="password" class="form-control" required="required">
-                                        <label for="inputPassword">Password</label>
-                                    </div>
+
+                                    <input type="password" name="password" class="form-control" required="required">
+                                    <label for="inputPassword">Password</label>
+
                                 </div>
 
                                 <button class="btn btn-primary btn-block" style="background-color: #6C63FF;" type="submit" name="login">Login</button>
-                            </form>
+                            </form> -->
 
                             <p class="login-card-footer-text mt-3">Selamat Datang
                             </p>

@@ -25,7 +25,7 @@ if (empty($_SESSION['admin'])) {
 
 </head>
 
-<body id="page-top">
+<body id="page-top" style="background-color: whitesmoke;">
 
   <?php include 'components/top.navbar.php' ?>
 
