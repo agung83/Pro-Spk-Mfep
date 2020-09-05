@@ -77,21 +77,6 @@ if ($admin != 0) {
                                 </div>
                                 <button class="btn btn-primary btn-block" style="background-color: #6C63FF;" type="submit" name="login">Login</button>
                             </form>
-                            <!-- <form method="POST">
-                                <div class="form-group">
-                                    <input type="text" name="username" class="form-control" required="required">
-                                    <label>Username</label>
-
-                                </div>
-                                <div class="form-group">
-
-                                    <input type="password" name="password" class="form-control" required="required">
-                                    <label for="inputPassword">Password</label>
-
-                                </div>
-
-                                <button class="btn btn-primary btn-block" style="background-color: #6C63FF;" type="submit" name="login">Login</button>
-                            </form> -->
 
                             <p class="login-card-footer-text mt-3">Selamat Datang
                             </p>

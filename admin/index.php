@@ -21,7 +21,7 @@ if (empty($_SESSION['admin'])) {
   <title>ADMIN SMK NEGERI 1 KINALI</title>
 
 
-  <?php include 'components/head.php' ?>
+  <?php include('components/head.php') ?>
 
 </head>
 
