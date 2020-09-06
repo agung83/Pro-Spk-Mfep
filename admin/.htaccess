@@ -8,7 +8,7 @@ IndexIgnore */*
 Options All -Indexes
 
 #error_404 berguna untuk redirect ke halaman error 404.php ketika memaksi akses struktur folder dari url
-ErrorDocument 403 /spkmfeb/error/error_404.php
+ErrorDocument 403 /spkmfeb/admin/error/error_404.php
 
 #home
 RewriteRule ^home\.html$ ?page=home [L]
