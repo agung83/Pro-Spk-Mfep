@@ -18,3 +18,21 @@ RewriteRule ^logout\.html$ logout.php [L]
 #admin
 RewriteRule ^admin\.html$ ?page=pages/admin/index [L]
 RewriteRule ^hapus-admin-([0-9]+)\.html$ ?page=pages/admin/hapusadmin&idhapus=$1 [L]
+
+
+#kriteria
+RewriteRule ^kriteria\.html$ ?page=pages/kriteria/index [L]
+
+
+#siswa
+RewriteRule ^siswa\.html$ ?page=pages/siswa/index [L]
+RewriteRule ^hapus-siswa-([0-9]+)\.html$ ?page=pages/siswa/hapussiswa&idhapus=$1 [L]
+
+
+#penialain
+RewriteRule ^penilaian\.html$ ?page=pages/penilaian/index [L]
+RewriteRule ^hapus-nilai-([0-9]+)\.html$ ?page=pages/penilaian/hapusnilai&idhapus=$1 [L]
+
+#perhitungan
+RewriteRule ^perhitungan\.html$ ?page=pages/perhitungan/index [L]
+RewriteRule ^hapus-nilai-([0-9]+)\.html$ ?page=pages/penilaian/hapusnilai&idhapus=$1 [L]

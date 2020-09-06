@@ -28,6 +28,30 @@
             <span>Data Admin</span>
         </a>
     </li>
+    <li class="nav-item ">
+        <a class="nav-link text-dark" href="kriteria.html">
+            <i class="fa fa-list"></i>
+            <span>Data Kriteria</span>
+        </a>
+    </li>
+    <li class="nav-item ">
+        <a class="nav-link text-dark" href="siswa.html">
+            <i class="fa fa-users"></i>
+            <span>Data Siswa</span>
+        </a>
+    </li>
+    <li class="nav-item ">
+        <a class="nav-link text-dark" href="penilaian.html">
+            <i class="fa fa-users"></i>
+            <span>Penilaian</span>
+        </a>
+    </li>
+    <li class="nav-item ">
+        <a class="nav-link text-dark" href="perhitungan.html">
+            <i class="fa fa-users"></i>
+            <span>Perhitungan</span>
+        </a>
+    </li>
 
     <!-- <li class="nav-item ">
         <a class="nav-link" href="?page=pages/laporan/index">

@@ -82,6 +82,113 @@ class Db extends conn
     }
     //-------------------------------------------AKHIR DARI CRUD ADMIN---------------------------------------------//
 
+    //-------------------------------------------AKHIR DARI CRUD KRITERIA---------------------------------------------//
+    public function tampilDataKriteria()
+    {
+
+        $query = $this->ambilData("SELECT * FROM tbl_kriteria");
+        return $query;
+    }
+    public function editKriteria($data)
+    {
+        global $koneksi;
+        $id         = $data['kriteria_id'];
+        $nama       = $data['kriteria_nama'];
+        $nilai      = $data['nilai_bobot'];
+
+        $query = "UPDATE tbl_kriteria SET 
+            kriteria_nama     = '$nama',
+            kriteria_bobot = '$nilai'
+            WHERE kriteria_id = '$id'";
+        return $koneksi->query($query);
+    }
+    //-------------------------------------------AKHIR DARI CRUD KRITERIA---------------------------------------------//
+    //-------------------------------------------AKHIR DARI CRUD SISWA---------------------------------------------//
+    public function tampilDataSiswa()
+    {
+        $query = $this->ambilData("SELECT * FROM tbl_siswa");
+        return $query;
+    }
+    public function HapusSiswa($id)
+    {
+        global $koneksi;
+        $query =  "DELETE FROM tbl_siswa WHERE siswa_id = '$id'";
+
+        return $koneksi->query($query);
+    }
+    public function tambahDataSiswa($data)
+    {
+        global $koneksi;
+        $a = $data['nis'];
+        $b   = $data['nama'];
+        $c   = $data['jk'];
+        $d   = $data['alamat'];
+        $e   = $data['nohp'];
+        $f   = $data['kelas'];
+        $g   = $data['jurusan'];
+        $query = "INSERT INTO `tbl_siswa`(`siswa_nis`, `siswa_nama`, `siswa_jk`, `siswa_alamat`, `siswa_nohp`, `siswa_kelas`, `siswa_jurusan`) VALUES
+                                                                                ('$a',
+                                                                                '$b',
+                                                                                '$c',
+                                                                                '$d',
+                                                                                '$e',
+                                                                                '$f',
+                                                                                '$g')";
+
+        return $koneksi->query($query);
+    }
+    //-------------------------------------------AKHIR DARI CRUD SISWA---------------------------------------------//
+    //-------------------------------------------AKHIR DARI CRUD penilaian---------------------------------------------//
+    public function tampilDataPenilaian()
+    {
+        $query = $this->ambilData("SELECT * FROM tbl_penilaian a JOIN tbl_siswa b ON a.siswa_id=b.siswa_id");
+        return $query;
+    }
+    public function tambahDataPenilaian($data)
+    {
+        global $koneksi;
+        $a = $data['siswa'];
+        $b   = $data['ratarata'];
+        $c   = $data['kehadiran'];
+        $d   = $data['penghasilan'];
+        $e   = $data['tanggungan'];
+
+        if ($b >= 81) {
+            $rata = 4;
+        } elseif ($b > 71 && $b <= 80) {
+            $rata = 3;
+        } elseif ($b > 50 && $b <= 70) {
+            $rata = 2;
+        } else {
+            $rata = 1;
+        }
+        $query = "INSERT INTO `tbl_penilaian`(`siswa_id`, `nilai_rata`, `nilai_rata_asli`, `nilai_kehadiran`, `nilai_penghasilan_ortu`, `nilai_tanggungan`) VALUES
+                                                                                ('$a',
+                                                                                '$rata','$b',
+                                                                                '$c',
+                                                                                '$d',
+                                                                                '$e'
+                                                                                )";
+
+        return $koneksi->query($query);
+    }
+    public function HapusPenilaian($id)
+    {
+        global $koneksi;
+        $query =  "DELETE FROM tbl_penilaian WHERE nilai_id = '$id'";
+
+        return $koneksi->query($query);
+    }
+    //-------------------------------------------AKHIR DARI CRUD penilaian---------------------------------------------//
+    //-------------------------------------------AKHIR DARI CRUD RANKING---------------------------------------------//
+    public function tampilDataRank()
+    {
+        $query = $this->ambilData("SELECT * FROM tbl_rank a JOIN tbl_siswa b ON a.siswa_id=b.siswa_id ORDER BY nilai_ev DESC ");
+        return $query;
+    }
+
+    //-------------------------------------------AKHIR DARI CRUD RANKING---------------------------------------------//
+
     public function login($data)
     {
         global $koneksi;
