@@ -116,6 +116,23 @@ class Db extends conn
 
         return $koneksi->query($query);
     }
+
+    public function editDatasiswa($data)
+    {
+
+        global $koneksi;
+        $id = $data['id'];
+        $a = $data['nis'];
+        $b   = $data['nama'];
+        $c   = $data['jk'];
+        $d   = $data['alamat'];
+        $e   = $data['nohp'];
+        $f   = $data['kelas'];
+        $g   = $data['jurusan'];
+
+        return $koneksi->query("UPDATE tbl_siswa SET siswa_nis = '$a', siswa_nama = '$b', siswa_jk = '$c', siswa_alamat = '$d', siswa_nohp = '$e', siswa_kelas = '$f', siswa_jurusan = '$g' WHERE siswa_id = '$id' ");
+    }
+
     public function tambahDataSiswa($data)
     {
         global $koneksi;
@@ -189,6 +206,61 @@ class Db extends conn
 
     //-------------------------------------------AKHIR DARI CRUD RANKING---------------------------------------------//
 
+
+    //------------------crud berita----------------------------------------------//
+    public function tampilBerita()
+    {
+        return $this->ambilData("SELECT * FROM tbl_berita");
+    }
+
+    public function saveBerita($data)
+    {
+        global $koneksi;
+        $judul = $data['judul'];
+        $isi = $data['isi'];
+        $tgl  = $data['tgl'];
+        $gambar = $_FILES['foto']['name'];
+        $lokasi = $_FILES['foto']['tmp_name'];
+        move_uploaded_file($lokasi, "images/berita/" . $gambar);
+
+        return $koneksi->query("INSERT INTO tbl_berita (berita_judul,berita_isi,berita_tgl,berita_gambar) VALUES ('$judul','$isi','$tgl','$gambar')");
+    }
+
+    public function editBerita($data)
+    {
+        global $koneksi;
+        $id = $data['id'];
+        $judul = $data['judul'];
+        $isi = $data['isi'];
+        $tgl  = $data['tgl'];
+
+        $gambar = $_FILES['foto']['name'];
+        $lokasi = $_FILES['foto']['tmp_name'];
+
+        if (!empty($lokasi)) {
+            move_uploaded_file($lokasi, "images/berita/" . $gambar);
+            return $koneksi->query("UPDATE tbl_berita SET berita_judul = '$judul',
+                                                                berita_isi = '$isi',
+                                                                berita_tgl = '$tgl',
+                                                                berita_gambar = '$gambar' WHERE 
+                                                                berita_id = '$id'");
+        } else {
+            return $koneksi->query("UPDATE tbl_berita SET 
+            berita_judul = '$judul',
+            berita_isi = '$isi',
+            berita_tgl = '$tgl'
+           WHERE 
+            berita_id = '$id'");
+        }
+    }
+
+    public function hapusBerita($id)
+    {
+        global $koneksi;
+        return $koneksi->query("DELETE FROM tbl_berita WHERE berita_id = '$id'");
+    }
+
+    //-------------------------------------akhir crud berita------------------//
     public function login($data)
     {
         global $koneksi;

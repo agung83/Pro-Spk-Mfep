@@ -16,7 +16,7 @@
             <div class="table-responsive">
                 <table class="table table-bordered" id="" width="100%" cellspacing="0">
                     <thead>
-                        <tr>
+                        <tr class="bg-primary">
                             <th>No</th>
                             <th>Nama Kriteria</th>
                             <th>Nilai Bobot</th>
@@ -31,7 +31,7 @@
                             <tr>
                                 <td><?= ++$no ?></td>
                                 <td><?= $pecah['kriteria_nama'] ?></td>
-                                <td><?= $pecah['kriteria_bobot'] ?></td>
+                                <td class="text-center"><?= $pecah['kriteria_bobot'] ?></td>
                             </tr>
                         <?php endforeach ?>
                     </tbody>
@@ -39,7 +39,7 @@
                         <tr>
                             <td>Jumlah</td>
                             <td></td>
-                            <td><?= @$jumlah ?></td>
+                            <td class="text-center"><?= @$jumlah ?></td>
                         </tr>
                     </tfoot>
                 </table>
@@ -54,7 +54,7 @@
             <div class="table-responsive">
                 <table class="table table-bordered" id="" width="100%" cellspacing="0">
                     <thead>
-                        <tr>
+                        <tr class="bg-primary">
                             <th>No</th>
                             <th>Nama Siswa</th>
                             <th>Nilai Rata - Rata</th>
@@ -78,7 +78,7 @@
                             } elseif ($hadir == 2) {
                                 $kehadiran = "Alpa = 2";
                             } else {
-                                $kehadiran = "Alpa > 2";
+                                $kehadiran = "Alpa > 3";
                             }
 
                             if ($penghasilan == 4) {
@@ -124,7 +124,7 @@
             <div class="table-responsive">
                 <table class="table table-bordered" id="" width="100%" cellspacing="0">
                     <thead>
-                        <tr>
+                        <tr class="bg-primary">
                             <th>No</th>
                             <th>Nama Siswa</th>
                             <th>Nilai Rata - Rata</th>
@@ -161,7 +161,7 @@
             <div class="table-responsive">
                 <table class="table table-bordered" id="" width="100%" cellspacing="0">
                     <thead>
-                        <tr>
+                        <tr class="bg-primary">
                             <th>No</th>
                             <th>Nama Siswa</th>
                             <th>Nilai Rata - Rata</th>
@@ -214,7 +214,7 @@
         </div>
     </div>
     <div class="text-center">
-        <button class="btn btn-primary" type="submit" name="simpan">Lihat Rangking</button>
+        <button class="btn btn-primary mb-2" type="submit" name="simpan">Lihat Rangking</button>
     </div>
     </form>
     <?php
@@ -233,7 +233,7 @@
                 <div class="table-responsive">
                     <table class="table table-bordered" id="" width="100%" cellspacing="0">
                         <thead>
-                            <tr>
+                            <tr class="bg-primary">
                                 <th>No</th>
                                 <th>Nama Siswa</th>
                                 <th>Total Nilai</th>
@@ -263,25 +263,3 @@
 
 
 </div>
-
-
-<script>
-    function tampilModal(id) {
-        $.ajax({
-            url: 'pages/admin/tampilEdit.php',
-            type: 'POST',
-            data: {
-                'id': id
-            },
-            dataType: 'JSON',
-            success: function(data) {
-                $('#id').val(data.admin_id)
-                $('#admin_nama').val(data.admin_nama)
-                $('#admin_username').val(data.admin_username)
-                $('#admin_password').val(data.admin_password)
-                document.getElementById('foto').src = 'images/admin/' + data.admin_foto
-                $('#exampleEdit').modal()
-            }
-        })
-    }
-</script>

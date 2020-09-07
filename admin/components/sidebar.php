@@ -29,6 +29,12 @@
         </a>
     </li>
     <li class="nav-item ">
+        <a class="nav-link text-dark" href="berita.html">
+            <i class="fa fa-newspaper"></i>
+            <span>Data Berita</span>
+        </a>
+    </li>
+    <li class="nav-item ">
         <a class="nav-link text-dark" href="kriteria.html">
             <i class="fa fa-list"></i>
             <span>Data Kriteria</span>
@@ -42,13 +48,13 @@
     </li>
     <li class="nav-item ">
         <a class="nav-link text-dark" href="penilaian.html">
-            <i class="fa fa-users"></i>
+            <i class="fa fa-circle"></i>
             <span>Penilaian</span>
         </a>
     </li>
     <li class="nav-item ">
         <a class="nav-link text-dark" href="perhitungan.html">
-            <i class="fa fa-users"></i>
+            <i class="fa fa-check"></i>
             <span>Perhitungan</span>
         </a>
     </li>

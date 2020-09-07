@@ -93,7 +93,7 @@
                         </div>
                         <div class="form-group">
                             <label class="font-weight-bold">Jenis Kelamin</label>
-                            <select name="jk" id="jk" class="form-control" required>
+                            <select name="jk" id="jkSave" class="form-control" required>
                                 <option value="">--Silahkan Pilih--</option>
                                 <option value="Laki-Laki">Laki-Laki</option>
                                 <option value="Perempuan">Perempuan</option>
@@ -101,7 +101,7 @@
                         </div>
                         <div class="form-group">
                             <label class="font-weight-bold">Alamat</label>
-                            <textarea name="alamat" id="alamat" cols="30" rows="5" class="form-control" required></textarea>
+                            <textarea name="alamat" cols="30" rows="5" class="form-control" required></textarea>
                         </div>
                         <div class="form-group">
                             <label class="font-weight-bold">No HP</label>
@@ -109,7 +109,7 @@
                         </div>
                         <div class="form-group">
                             <label class="font-weight-bold">Kelas</label>
-                            <select name="kelas" id="kelas" class="form-control" required>
+                            <select name="kelas" id="kelasSave" class="form-control" required>
                                 <option value="">--Silahkan Pilih--</option>
                                 <option value="X">X</option>
                                 <option value="XI">XI</option>
@@ -142,11 +142,11 @@
             <div class="modal-body">
                 <form action="" method="POST" enctype="multipart/form-data">
                     <?php if (isset($_POST['edit'])) {
-                        $db->editdata($_POST);
+                        $db->editDatasiswa($_POST);
                         echo "     <script>alert('data berhasil di edit')</script>";
-                        echo "<meta http-equiv='refresh' content='0;url=admin.html'>";
+                        echo "<meta http-equiv='refresh' content='0;url=siswa.html'>";
                     } ?>
-                    <input type="hidden" id="id" name="admin_id" class="form-control">
+                    <input type="hidden" id="id" name="id" class="form-control">
                     <div class="form-group">
                         <label class="font-weight-bold">NIS</label>
                         <input type="text" name="nis" id="nis" class="form-control">
@@ -158,7 +158,7 @@
                     <div class="form-group">
                         <label class="font-weight-bold">Jenis Kelamin</label>
                         <select name="jk" id="jk" class="form-control">
-                            <option value="">--Silahkan Pilih--</option>
+
                             <option value="Laki-Laki">Laki-Laki</option>
                             <option value="Perempuan">Perempuan</option>
                         </select>
@@ -166,6 +166,7 @@
                     <div class="form-group">
                         <label class="font-weight-bold">Alamat</label>
                         <textarea name="alamat" id="alamat" cols="30" rows="5" class="form-control"></textarea>
+
                     </div>
                     <div class="form-group">
                         <label class="font-weight-bold">No HP</label>
@@ -173,7 +174,7 @@
                     </div>
                     <div class="form-group">
                         <label class="font-weight-bold">Kelas</label>
-                        <select name="kelas" id="kelas" class="form-control">
+                        <select name="kelas" id="kelasEdit" class="form-control">
                             <option value="">--Silahkan Pilih--</option>
                             <option value="X">X</option>
                             <option value="XI">XI</option>
@@ -204,13 +205,14 @@
             },
             dataType: 'JSON',
             success: function(data) {
+                console.log(data);
                 $('#id').val(data.siswa_id)
                 $('#nis').val(data.siswa_nis)
                 $('#nama').val(data.siswa_nama)
                 $('#jk').val(data.siswa_jk)
                 $('#alamat').val(data.siswa_alamat)
                 $('#nohp').val(data.siswa_nohp)
-                $('#kelas').val(data.siswa_kelas)
+                $('#kelasEdit').val(data.siswa_kelas)
                 $('#jurusan').val(data.siswa_jurusan)
                 // document.getElementById('foto').src = 'images/admin/' + data.admin_foto
                 $('#exampleEdit').modal()
