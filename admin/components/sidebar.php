@@ -58,9 +58,15 @@
             <span>Perhitungan</span>
         </a>
     </li>
+    <li class="nav-item ">
+        <a class="nav-link text-dark" href="laporan.html">
+            <i class="fa fa-list"></i>
+            <span>Laporan</span>
+        </a>
+    </li>
 
     <!-- <li class="nav-item ">
-        <a class="nav-link" href="?page=pages/laporan/index">
+        <a class="nav-link" href="laporan.html">
             <i class="fas fa-calendar-alt"></i>
             <span>Laporan</span>
         </a>

@@ -22,6 +22,8 @@ RewriteRule ^hapus-admin-([0-9]+)\.html$ ?page=pages/admin/hapusadmin&idhapus=$1
 
 #kriteria
 RewriteRule ^kriteria\.html$ ?page=pages/kriteria/index [L]
+#kriteria
+RewriteRule ^laporan\.html$ ?page=pages/laporan_excel/index [L]
 
 
 #siswa
