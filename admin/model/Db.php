@@ -76,7 +76,6 @@ class Db extends conn
             admin_username = '$username',
             admin_password = '$password'
             WHERE admin_id = '$id'";
-
             return $koneksi->query($query);
         }
     }
@@ -203,6 +202,7 @@ class Db extends conn
         $query = $this->ambilData("SELECT * FROM tbl_rank a JOIN tbl_siswa b ON a.siswa_id=b.siswa_id ORDER BY nilai_ev DESC ");
         return $query;
     }
+
 
     //-------------------------------------------AKHIR DARI CRUD RANKING---------------------------------------------//
 

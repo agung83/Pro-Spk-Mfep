@@ -83,7 +83,7 @@ header("Content-Disposition: attachment; filename=Data Laporan Penilaian.xls");
             <?php
             $no = 1;
             $no2 = 1;
-            $ambil = $koneksi->query("SELECT * FROM tbl_rank a JOIN tbl_siswa b ON a.siswa_id=b.siswa_id ORDER BY a.nilai_ev DESC");
+            $ambil = $koneksi->query("SELECT * FROM tbl_rank a JOIN tbl_siswa b ON a.siswa_id=b.siswa_id WHERE a.status_acc = 'acc' ORDER BY a.nilai_ev DESC");
             while ($pecah = $ambil->fetch_array()) {
             ?>
                 <tr>
@@ -98,6 +98,7 @@ header("Content-Disposition: attachment; filename=Data Laporan Penilaian.xls");
                     <td style="text-align: center;"><?= $no2++ ?></td>
                 </tr>
             <?php } ?>
+
         </tbody>
     </table>
     <a class="scroll-to-top rounded" href="#page-top">

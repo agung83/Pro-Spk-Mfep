@@ -11,7 +11,8 @@
     <div class="card mb-3">
         <div class="card-header">
             <i class="fas fa-table"></i>
-            Data Table Penilaian</div>
+            Data Table Penilaian
+        </div>
         <div class="card-body">
             <a class="btn btn-primary mb-3" data-toggle="modal" data-target="#exampleModal" style="margin-top: -10px; " href="#"><i class="fa fa-plus"></i></a>
             <div class="table-responsive">
@@ -130,7 +131,8 @@
                             <label class="font-weight-bold">Nilai Kehadiran</label>
                             <select name="kehadiran" id="kehadiran" class="form-control">
                                 <option value="">--Silahkan Pilih--</option>
-                                <option value="4">Alpa < 1</option> <option value="3">Alpa = 1</option>
+                                <option value="4">Alpa < 1</option>
+                                <option value="3">Alpa = 1</option>
                                 <option value="2">Alpa = 2</option>
                                 <option value="1">Alpa > 3</option>
                             </select>
@@ -140,7 +142,9 @@
                             <select name="penghasilan" id="penghasilan" class="form-control">
                                 <option value="">--Silahkan Pilih--</option>
                                 <option value="4">Penghasilan ≤ Rp.1.000.000</option>
-                                <option value="3">Rp.1.000.000 < Penghasilan ≥ Rp.3.000.000</option> <option value="2">Rp.3.000.000 < Penghasilan ≥ Rp.5000.000</option> <option value="1">Penghasilan > 5.000.000</option>
+                                <option value="3">Rp.1.000.000 < Penghasilan ≥ Rp.3.000.000</option>
+                                <option value="2">Rp.3.000.000 < Penghasilan ≥ Rp.5000.000</option>
+                                <option value="1">Penghasilan > 5.000.000</option>
                             </select>
                         </div>
                         <div class="form-group">
@@ -173,36 +177,61 @@
                 </button>
             </div>
             <div class="modal-body">
+
+                <?php if (isset($_POST['edit'])) {
+                    $db->editdata($_POST);
+                    echo "     <script>alert('data berhasil di edit')</script>";
+                    echo "<meta http-equiv='refresh' content='0;url=admin.html'>";
+                } ?>
                 <form action="" method="POST" enctype="multipart/form-data">
-                    <?php if (isset($_POST['edit'])) {
-                        $db->editdata($_POST);
-                        echo "     <script>alert('data berhasil di edit')</script>";
-                        echo "<meta http-equiv='refresh' content='0;url=admin.html'>";
-                    } ?>
-                    <input type="hidden" id="id" name="admin_id" class="form-control">
+
                     <div class="form-group">
-                        <label>Nama admin</label>
-                        <input type="text" class="form-control" id="admin_nama" name="admin_nama">
-                    </div>
-                    <div class="form-group">
-                        <label>Username</label>
-                        <input type="text" class="form-control" id="admin_username" name="admin_username">
-                    </div>
-                    <div class="form-group">
-                        <label>Password</label>
-                        <input type="password" class="form-control" id="admin_password" name="admin_password">
-                    </div>
-                    <div class="form-group">
-                        <img id="foto" width="200">
+                        <label class="font-weight-bold">Siswa</label>
+                        <select name="siswa" id="siswaedit" class="form-control" required>
+                            <option value="">--Silahkan Pilih--</option>
+                            <?php
+                            $siswa = $db->tampilDataSiswa();
+                            foreach ($siswa as $no => $pecah) :
+                            ?>
+                                <option value="<?= $pecah['siswa_id'] ?>"><?= $pecah['siswa_nama'] ?></option>
+                            <?php endforeach ?>
+                        </select>
                     </div>
 
                     <div class="form-group">
-                        <label class="font-weight-bold">Gambar</label>
-                        <input type="file" class="form-control-file" name="foto">
+                        <label class="font-weight-bold">Nilai Rata-Rata</label>
+                        <input type="number" id="rataedit" name="ratarata" class="form-control" required>
                     </div>
-
-
-
+                    <div class="form-group">
+                        <label class="font-weight-bold">Nilai Kehadiran</label>
+                        <select name="kehadiran" id="kehadiranedit" class="form-control">
+                            <option value="">--Silahkan Pilih--</option>
+                            <option value="4">Alpa < 1</option>
+                            <option value="3">Alpa = 1</option>
+                            <option value="2">Alpa = 2</option>
+                            <option value="1">Alpa > 3</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="font-weight-bold">Penghasilan Orang Tua</label>
+                        <select name="penghasilan" id="penghasilanedit" class="form-control">
+                            <option value="">--Silahkan Pilih--</option>
+                            <option value="4">Penghasilan ≤ Rp.1.000.000</option>
+                            <option value="3">Rp.1.000.000 < Penghasilan ≥ Rp.3.000.000</option>
+                            <option value="2">Rp.3.000.000 < Penghasilan ≥ Rp.5000.000</option>
+                            <option value="1">Penghasilan > 5.000.000</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="font-weight-bold">Tanggungan Orang Tua</label>
+                        <select name="tanggungan" id="tanggunganedit" class="form-control">
+                            <option value="">--Silahkan Pilih--</option>
+                            <option value="1">1 Anak</option>
+                            <option value="2">2 Anak</option>
+                            <option value="3">3 Anak</option>
+                            <option value="4">≥ 4 Anak</option>
+                        </select>
+                    </div>
             </div>
             <div class="modal-footer">
                 <button type="submit" name="edit" class="btn btn-warning">Edit</button>
@@ -215,21 +244,19 @@
 
 <script>
     function tampilModal(id) {
-        $.ajax({
-            url: 'pages/admin/tampilEdit.php',
-            type: 'POST',
-            data: {
-                'id': id
-            },
-            dataType: 'JSON',
-            success: function(data) {
-                $('#id').val(data.admin_id)
-                $('#admin_nama').val(data.admin_nama)
-                $('#admin_username').val(data.admin_username)
-                $('#admin_password').val(data.admin_password)
-                document.getElementById('foto').src = 'images/admin/' + data.admin_foto
-                $('#exampleEdit').modal()
-            }
-        })
+
+        $('#exampleEdit').modal()
+        // $.ajax({
+        //     url: 'pages/admin/tampilEdit.php',
+        //     type: 'POST',
+        //     data: {
+        //         'id': id
+        //     },
+        //     dataType: 'JSON',
+        //     success: function(data) {
+
+
+        //     }
+        // })
     }
 </script>

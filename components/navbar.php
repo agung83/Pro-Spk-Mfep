@@ -10,8 +10,14 @@
                 <li class="active"><a href="?page=home">Home</a></li>
                 <li><a href="?page=pages/informasi/informasi">Informasi</a></li>
                 <li><a href="?page=pages/kontak/kontak">Kontak</a></li>
-                <li><a href="?page=pages/registrasi/formpendaftaran">Registrasi Beasiswa</a></li>
-                <li><a href="?page=pages/login/login">Login</a></li>
+                <!-- <li><a href="?page=pages/registrasi/formpendaftaran">Beasiswa</a></li> -->
+                <li class="drop-down"><a href="">Beasiswa</a>
+                    <ul>
+                        <li><a href="?page=pages/beasiswa/list_beasiswa">List Nilai Beasiswa</a></li>
+
+                    </ul>
+                </li>
+                <!-- <li><a href="?page=pages/login/login">Login</a></li> -->
 
 
             </ul>

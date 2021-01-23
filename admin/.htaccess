@@ -41,3 +41,7 @@ RewriteRule ^hapus-nilai-([0-9]+)\.html$ ?page=pages/penilaian/hapusnilai&idhapu
 
 #BERITA
 RewriteRule ^berita\.html$ ?page=pages/berita/index [L]
+RewriteRule ^hapus-berita-([0-9]+)\.html$ ?page=pages/berita/hapusBerita&idhapus=$1 [L]
+
+#rangkingkepse
+RewriteRule ^rangkingkepsek\.html$ ?page=pages/rangkingkepsek/index [L]

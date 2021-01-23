@@ -43,7 +43,7 @@
 
                                 <td>
                                     <button type="button" onclick="tampilModal('<?= $pecah['berita_id'] ?>')" class="btn btn-warning btn-block mb-2">Edit</button>
-                                    <a class="btn btn-danger" href="?page=pages/informasi/hapusBerita&idhapus=<?= $pecah['berita_id'] ?>">Hapus</a>
+                                    <a class="btn btn-danger" href="hapus-berita-<?= $pecah['berita_id'] ?>.html">Hapus</a>
                                 </td>
                             </tr>
                         <?php endforeach ?>

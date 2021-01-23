@@ -57,8 +57,9 @@
     <section id="counts" class="counts">
         <div class="container" data-aos="fade-up">
 
-
-
+            <!-- SnapWidget -->
+            <script src="https://snapwidget.com/js/snapwidget.js"></script>
+            <iframe src="https://snapwidget.com/embed/894056" class="snapwidget-widget" allowtransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden;  width:100%; "></iframe>
 
 
         </div>
