@@ -26,7 +26,7 @@ if (empty($_SESSION['admin'])) {
 </head>
 
 <body id="page-top" style="background-color: whitesmoke;">
-
+  <script src="assets/vendor/jquery/jquery.min.js"></script>
   <?php include 'components/top.navbar.php' ?>
 
   <div id="wrapper">

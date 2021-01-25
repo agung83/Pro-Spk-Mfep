@@ -8,7 +8,7 @@
 
 <!-- Custom fonts for this template-->
 <link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-
+<link rel="stylesheet" href="assets/js/icheck/skins/all.css">
 <!-- Page level plugin CSS-->
 <link href="assets/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
 
